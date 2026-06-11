@@ -1,0 +1,14 @@
+.faq-section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .MuiAccordion-root {
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+
+  .MuiAccordionSummary-root {
+    font-weight: 600;
+  }
+}

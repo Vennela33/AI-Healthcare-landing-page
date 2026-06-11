@@ -1,0 +1,54 @@
+.header {
+  background: #ffffff !important;
+  color: #333 !important;
+
+  .header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    min-height: 80px;
+  }
+
+  .logo {
+    font-weight: 700;
+    color: #1976d2;
+    cursor: pointer;
+  }
+
+  .menu {
+    display: flex;
+    gap: 10px;
+
+    button {
+      color: #333;
+      font-weight: 500;
+      text-transform: none;
+
+      &:hover {
+        color: #1976d2;
+      }
+    }
+  }
+
+  .cta-btn {
+    text-transform: none;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .header-toolbar {
+      padding: 0 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .menu {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}

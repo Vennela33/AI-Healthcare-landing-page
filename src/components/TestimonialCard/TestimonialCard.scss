@@ -1,0 +1,21 @@
+.testimonial-card {
+  height: 100%;
+  padding: 10px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .feedback {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .patient-name {
+    margin-top: 10px;
+    color: #1976d2;
+    font-weight: 600;
+  }
+}

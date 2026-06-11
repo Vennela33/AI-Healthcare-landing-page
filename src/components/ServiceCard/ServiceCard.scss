@@ -1,0 +1,8 @@
+.service-card {
+  height: 100%;
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}

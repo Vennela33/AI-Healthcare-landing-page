@@ -1,0 +1,27 @@
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 50px;
+  gap: 40px;
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-image {
+    flex: 1;
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}

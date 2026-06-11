@@ -1,0 +1,25 @@
+.footer {
+  background: #0f172a;
+  color: white;
+  padding: 60px 40px 20px;
+
+  h6 {
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  a {
+    color: #cbd5e1;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .copyright {
+    margin-top: 40px;
+    border-top: 1px solid #334155;
+    padding-top: 20px;
+  }
+}
