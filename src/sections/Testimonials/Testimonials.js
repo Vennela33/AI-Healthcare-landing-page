@@ -7,12 +7,13 @@ import TestimonialCard from "../../components/TestimonialCard/TestimonialCard";
 import "./Testimonials.scss";
 
 function Testimonials({ data }) {
+  const testimonialsData = data.filter(item => item.type === "testimonial");
   return (
     <Box id="testimonials" className="testimonials-section">
       <SectionHeader title="Patient Testimonials" />
 
       <Grid container spacing={3}>
-        {data?.map((testimonial) => (
+        {testimonialsData?.map((testimonial) => (
           <Grid
             key={testimonial.id}
             size={{

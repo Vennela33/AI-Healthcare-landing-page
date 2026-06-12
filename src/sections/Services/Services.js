@@ -6,12 +6,13 @@ import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./Services.scss";
 
 function Services({ data }) {
+  const servicesData = data.filter(item => item.type === "service");
   return (
     <Box id="services" className="services-section">
       <SectionHeader title="Our Services" />
 
       <Grid container spacing={3}>
-  {data?.map((service) => (
+  {servicesData?.map((service) => (
     <Grid
       key={service.id}
       size={{

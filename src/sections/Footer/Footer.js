@@ -5,47 +5,81 @@ import {
   Typography,
   Link,
 } from "@mui/material";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 import "./Footer.scss";
 
 function Footer({ data }) {
+  const footerData = data.find(item => item.type === "footer");
+
+
+
   return (
     <Box className="footer">
       <Grid container spacing={4}>
         
-        {/* Company Info */}
         <Grid size={{ xs:12,md:4}}>
           <Typography variant="h6">
-            {data?.company}
+            {footerData?.company}
           </Typography>
 
           <Typography>
-            {data?.description}
+            {footerData?.description}
           </Typography>
         </Grid>
 
-        {/* Contact Details */}
         <Grid size={{ xs:12, md:4}}>
           <Typography variant="h6">
             Contact
           </Typography>
 
           <Typography>
-            Email: {data?.email}
+            Email: {footerData?.email}
           </Typography>
 
           <Typography>
-            Phone: {data?.phone}
+            Phone: {footerData?.phone}
           </Typography>
+          <Box className="social-links">
+            <Link
+              href={footerData?.socialLinks?.facebook}
+              target="_blank"
+            >
+              <FacebookIcon />
+            </Link>
+
+            <Link
+              href={footerData?.socialLinks?.linkedin}
+              target="_blank"
+            >
+              <LinkedInIcon />
+            </Link>
+
+            <Link
+              href={footerData?.socialLinks?.twitter}
+              target="_blank"
+            >
+              <TwitterIcon />
+            </Link>
+
+            <Link
+              href={footerData?.socialLinks?.instagram}
+              target="_blank"
+            >
+              <InstagramIcon />
+            </Link>
+          </Box>
         </Grid>
 
-        {/* Quick Links */}
         <Grid size={{ xs:12,md:4}}>
           <Typography variant="h6">
             Quick Links
           </Typography>
 
-          {data?.quickLinks?.map((link, index) => (
+          {footerData?.quickLinks?.map((link, index) => (
             <Typography key={index}>
               <Link href="#">
                 {link}
@@ -54,13 +88,14 @@ function Footer({ data }) {
           ))}
         </Grid>
 
+
       </Grid>
 
       <Typography
         align="center"
         className="copyright"
       >
-        © 2026 {data?.company}. All Rights Reserved.
+        © 2026 {footerData?.company}. All Rights Reserved.
       </Typography>
     </Box>
   );

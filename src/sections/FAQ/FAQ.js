@@ -11,11 +11,12 @@ import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./FAQ.scss";
 
 function FAQ({ data }) {
+  const faqdata=data.filter(item=>item.type==="faq")
   return (
     <Box id="faq" className="faq-section">
       <SectionHeader title="Frequently Asked Questions" />
 
-      {data?.map((faq) => (
+      {faqdata?.map((faq) => (
         <Accordion key={faq.id}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}

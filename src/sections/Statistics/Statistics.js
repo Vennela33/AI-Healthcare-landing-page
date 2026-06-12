@@ -11,12 +11,13 @@ import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./Statistics.scss";
 
 function Statistics({ data }) {
+  const statisticsData = data.filter(item => item.type === "stat");
   return (
     <Box className="statistics-section">
       <SectionHeader title="Our Achievements" />
 
       <Grid container spacing={3}>
-        {data?.map((item) => (
+        {statisticsData?.map((item) => (
           <Grid
             key={item.id}
             size={{

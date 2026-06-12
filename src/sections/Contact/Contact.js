@@ -1,11 +1,24 @@
-import React from "react";
-import {Box,Grid,Paper,TextField,Typography,Button,MenuItem} from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+  Button,
+  MenuItem,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
 import CustomButton from "../../components/Button";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Formik, Form } from "formik";
 import { contactSchema } from "../../validation/contactSchema";
 
-
 function Contact() {
+  const [open,setOpen]=useState(false);
   const initialValues = {
     fullName: "",
     email: "",
@@ -17,9 +30,12 @@ function Contact() {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    alert("Contact Form Submitted Successfully");
-    resetForm();
-  };
+  console.log("Form Data:", values);
+
+  setOpen(true);
+
+  resetForm();
+};
 
   return (
     <Box id="contact" sx={{ py: 8, px: 2 }}>
@@ -55,7 +71,7 @@ function Contact() {
               <Grid container spacing={3}>
                 <Grid size={{ xs: 12, md: 6 }}>
                   <TextField
-                  required
+                    required
                     fullWidth
                     label="Full Name"
                     name="fullName"
@@ -75,7 +91,7 @@ function Contact() {
 
                 <Grid size={{ xs: 12, md: 6 }}>
                   <TextField
-                  required
+                    required
                     fullWidth
                     label="Email Address"
                     name="email"
@@ -95,7 +111,7 @@ function Contact() {
 
                 <Grid size={{ xs: 12, md: 6 }}>
                   <TextField
-                  required
+                    required
                     fullWidth
                     label="Phone Number"
                     name="phone"
@@ -181,7 +197,7 @@ function Contact() {
 
                 <Grid size={{ xs: 12 }}>
                   <TextField
-                  required
+                    required
                     fullWidth
                     multiline
                     rows={5}
@@ -212,6 +228,20 @@ function Contact() {
           )}
         </Formik>
       </Paper>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogContent sx={{textAlign: "center",p: 4,}}>
+          <CheckCircleIcon color="success" sx={{fontSize: 80,mb: 2,}}/>
+          <Typography variant="h5"gutterBottom>Success!</Typography>
+          <Typography>Contact form submitted successfully.</Typography>
+        </DialogContent>
+        <DialogActions sx={{justifyContent: "center",pb: 3,}}>
+          <Button
+          variant="contained"
+          onClick={() => setOpen(false)}>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

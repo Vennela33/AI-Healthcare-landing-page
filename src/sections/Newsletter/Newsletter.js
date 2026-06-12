@@ -1,9 +1,23 @@
-import React from "react";
-import { Box, Typography, TextField, Button, Paper } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  TextField,
+  Paper,
+  Dialog,
+  DialogContent,
+  DialogActions,
+  Button,
+} from "@mui/material";
+
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import CustomButton from "../../components/Button";
+
+
 function Newsletter() {
+  const [open, setOpen] = useState(false);
   const initialValues = {
     email: "",
   };
@@ -15,7 +29,8 @@ function Newsletter() {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    alert("Subscribed Successfully!");
+    console.log(values);
+    setOpen(true);
     resetForm();
   };
 
@@ -75,6 +90,52 @@ function Newsletter() {
           )}
         </Formik>
       </Paper>
+      <Dialog
+  open={open}
+  onClose={() => setOpen(false)}
+>
+  <DialogContent
+    sx={{
+      textAlign: "center",
+      p: 4,
+      minWidth: 350,
+    }}
+  >
+    <CheckCircleIcon
+      color="success"
+      sx={{
+        fontSize: 80,
+        mb: 2,
+      }}
+    />
+
+    <Typography
+      variant="h5"
+      fontWeight="bold"
+      gutterBottom
+    >
+      Subscription Successful!
+    </Typography>
+
+    <Typography color="text.secondary">
+      Thank you for subscribing to our newsletter.
+    </Typography>
+  </DialogContent>
+
+  <DialogActions
+    sx={{
+      justifyContent: "center",
+      pb: 3,
+    }}
+  >
+    <Button
+      variant="contained"
+      onClick={() => setOpen(false)}
+    >
+      OK
+    </Button>
+  </DialogActions>
+</Dialog>
     </Box>
   );
 }

@@ -16,7 +16,7 @@ function TestimonialCard({ testimonial }) {
           variant="body1"
           className="feedback"
         >
-          "{testimonial.feedback}"
+          "{testimonial.review}"
         </Typography>
 
         <Rating
@@ -28,7 +28,7 @@ function TestimonialCard({ testimonial }) {
           variant="h6"
           className="patient-name"
         >
-          {testimonial.patientName}
+          {testimonial.name}
         </Typography>
       </CardContent>
     </Card>

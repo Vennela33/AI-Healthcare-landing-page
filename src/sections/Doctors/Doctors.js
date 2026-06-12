@@ -5,6 +5,7 @@ import DoctorCard from "../../components/DoctorCard/DoctorCard";
 import "./Doctors.scss";
 
 function Doctors({ data }) {
+  const doctordata=data.filter(item=>item.type==="doctor")
   return (
     <Box
       id="doctors"
@@ -13,7 +14,7 @@ function Doctors({ data }) {
       <SectionHeader title="Our Doctors" />
 
       <Grid container spacing={3}>
-        {data?.map((doctor) => (
+        {doctordata?.map((doctor) => (
           <Grid
             key={doctor.id}
             size={{

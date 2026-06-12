@@ -4,16 +4,17 @@ import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import "./About.scss";
 
 function About({ data }) {
+  const aboutdata=data.find(item=>item.type==="about")
   return (
     <Box id="about" className="about-section">
       <SectionHeader
-        title={data?.heading}
+        title={aboutdata?.heading}
       />
       <Typography
         variant="body1"
         className="about-description"
       >
-        {data?.description}
+        {aboutdata?.description}
       </Typography>
     </Box>
   );

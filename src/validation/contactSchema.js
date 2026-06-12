@@ -11,8 +11,8 @@ export const contactSchema = Yup.object({
 
   phone: Yup.string()
     .matches(
-      /^[6-9]\d{9}$/,
-      "Invalid Phone"
+      /^[0-9]{10}$/,
+      "Enter valid Phone Number"
     )
     .required("Required"),
 
