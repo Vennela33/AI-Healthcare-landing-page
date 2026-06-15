@@ -6,18 +6,18 @@ import {
   Button,
   Box,
 } from "@mui/material";
-
 import { useNavigate } from "react-router-dom";
-
 import CustomButton from "../../components/Button";
-
 import "./Header.scss";
 
 function Header({ data }) {
   const headerData = data.find(item => item.type === "header");
-
+  console.log(headerData)
   const navigate = useNavigate();
-
+  const handleNavigate = (path) => {
+    console.log(path);
+  navigate(path);
+};
   return (
     <AppBar
       position="sticky"
@@ -26,7 +26,6 @@ function Header({ data }) {
     >
       <Toolbar className="header-toolbar">
 
-        {/* Logo */}
         <Typography
           variant="h6"
           className="logo"
@@ -34,7 +33,6 @@ function Header({ data }) {
           {headerData?.logo}
         </Typography>
 
-        {/* Menu */}
         <Box className="menu">
 
           {headerData?.menuItems?.map((item) => (
@@ -42,8 +40,9 @@ function Header({ data }) {
             <Button
               key={item.label}
               color="inherit"
-              href={item.path}
-            >
+               href={item.path}
+                //onClick={() =>handleNavigate(item.path)}
+                >
               {item.label}
             </Button>
 
@@ -51,7 +50,6 @@ function Header({ data }) {
 
         </Box>
 
-        {/* CTA */}
         <CustomButton
           title={headerData?.ctaButtonText}
         />

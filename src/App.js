@@ -17,42 +17,23 @@ import LandingPage from "./pages/LandingPage";
 import Newsletter from "./sections/Newsletter/Newsletter";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
+import ApiData from "./api/data";
 
 function App() {
-  const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-  
-    useEffect(() => {
-      fetchContent();
-    }, []);
-  
-    const fetchContent = async () => {
-      try {
-        const result = await getLandingContent();
-        setData(result);
-      } catch (err) {
-        console.error(err);
-        setError("Unable to load content");
-      } finally {
-        setLoading(false);
-      }
-    };
-    if (loading) return <Loader />;
-      if (error) return <ErrorMessage message={error} />;
+    
     
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage data={data}/>}/>
-        <Route path="#hero" element={<Hero />}/>
-        <Route path="#about" element={<About />}/>
-        <Route path="#doctors" element={<Doctors />}/>
-        <Route path="#faq" element={<FAQ />}/>
-        <Route path="#services" element={<Services />}/>
-        <Route path="#testmonial" element={<Testimonials />}/>
-        <Route path="#contact" element={<Contact />}/>
-        <Route path="#newsletter" element={<Newsletter />}/>
+        <Route path="/" element={<ApiData />}/>
+       {/* <Route path="/hero" element={<Hero  />} />
+<Route path="/about" element={<About data={data} />} />
+<Route path="/doctors" element={<Doctors data={data} />} />
+<Route path="/faq" element={<FAQ data={data} />} />
+<Route path="/services" element={<Services data={data} />} />
+<Route path="/testmonial" element={<Testimonials data={data} />} />
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/newsletter" element={<Newsletter />}/>  */}
 
       </Routes>
     </BrowserRouter>

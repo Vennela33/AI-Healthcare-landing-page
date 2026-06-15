@@ -18,15 +18,15 @@ function LandingPage({data}) {
   return (
     <>
       <Header data={data} />
-      <Hero  data={data}/>
+     <Hero  data={data}/>
       <About data={data}/>
       <Services data={data}/>
       <Doctors data={data}/>
       <Testimonials data={data}/>
       <FAQ data={data}/>
       <Contact />
-      <Newsletter />
-      <Footer data={data} />
+      <Newsletter /> 
+      <Footer data={data} /> 
     </>
   );
 }
